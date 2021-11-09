@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Laura Lopez DWN3A</title>
+
+</head>
+
+<body>
+
+    <main class="container main">
+        <h1>Meta Pelis</h1>
+        <div>
+            <section class="formulario">
+                <h2 class="visually-hidden">Buscador de películas</h2>
+                <form id="formulario">
+                    <label for="busqueda" class="visually-hidden">Película</label>
+                    <input title="Busqueda" id="busqueda" type="text" required placeholder="Ingrese una película" />
+                    <button id="sendButton" type="button" class="btn btn-primary">Enviar</button>
+                </form>
+            </section>
+        </div>
+
+        <div class="row" id="info">
+        </div>
+        <div id="map"></div>
+    </main>
+
+
+
+    <script src="js/fetch.js"></script>
+    <script src="js/register-sw.js"></script>
+</body>
+
+</html>

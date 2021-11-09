@@ -1,0 +1,118 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+    margin-top: 5em;
+    color: black;
+    text-align: center;
+}
+
+.btn {
+    background-color: #475f4f;
+    border: 0;
+    color: white;
+}
+
+.btn :hover {
+    background-color: #475f4f;
+}
+
+input {
+    font-weight: bold;
+}
+
+#info {
+    margin-top: 1em;
+    font-weight: bold;
+    margin-bottom: 3em;
+}
+
+#ciudad {
+    display: inline-block;
+    font-size: 1.3em;
+}
+
+.temp {
+    font-size: 2.5em;
+}
+
+.icono {
+    width: 5em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.descripcion {
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.minima {
+    padding-top: 3em;
+    background: url(../img/minima.png) no-repeat top center;
+    height: 3em;
+}
+
+.maxima {
+    padding-top: 3em;
+    background: url(../img/maxima.png) no-repeat top center;
+    height: 3em;
+}
+
+.presion {
+    padding-top: 3em;
+    background: url(../img/presion.png) no-repeat top center;
+    height: 3em;
+}
+
+.viento {
+    padding-top: 3em;
+    background: url(../img/viento.png) no-repeat top center;
+    height: 3em;
+}
+
+.humedad {
+    padding-top: 3em;
+    background: url(../img/humedad.png) no-repeat top center;
+    height: 3em;
+}
+
+.sensacion {
+    padding-top: 3em;
+    background: url(../img/sensacion.png) no-repeat top center;
+    height: 3em;
+}
+
+@media screen and (max-width: 768px) {
+    #info .minima,
+    #info .maxima,
+    #info .humedad,
+    #info .viento,
+    #info .presion,
+    #info .sensacion {
+        padding-top: 2em;
+        margin-top: 1.2em;
+    }
+    .main {
+        margin-top: 2em;
+    }
+}
+
+#map {
+    margin: 0 auto 3em auto;
+    width: 80%;
+    height: 0;
+    padding-top: 20%;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    #map {
+        margin: 0 auto 3em auto;
+        width: 80%;
+        height: 0;
+        padding-top: 40%;
+        position: relative;
+    }
+}
