@@ -130,3 +130,12 @@ nav .navbar-toggler-icon {
         margin: 5em auto;
     }
 }
+
+#mainParaVer {
+    margin-top: 6em;
+    text-align: center;
+}
+
+#mainParaVer a {
+    margin-top: 3em;
+}

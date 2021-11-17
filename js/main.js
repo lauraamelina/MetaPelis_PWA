@@ -190,7 +190,7 @@ function eliminarDeLaLista(indice) {
 // LISTA PARA VER
 function listaParaVer() {
     if (paraVer.length == 0) {
-        mainParaVer.innerHTML = `<h2> Todavía no agregaste películas a favoritos </h2>
+        mainParaVer.innerHTML = `<h2> Todavía no agregaste películas para ver más tarde </h2>
         <a class="btn" href="index.html"> Agregar peliculas </a>
         `;
     } else {
