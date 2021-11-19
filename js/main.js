@@ -13,20 +13,36 @@ let laPelicula;
 // CONEXION A INTERNET
 window.addEventListener('offline', event => {
     let conexion = document.getElementById('verificarConexion');
-    conexion.className = ("offline");
-    conexion.innerHTML = ('<i class="gg-shape-circle"></i> Offline');
+    conexion.className = "offline";
+    conexion.innerHTML = 'Offline';
+    document.querySelector(".formulario").remove();
+    document.getElementById("mainInfo").innerHTML = `
+    <div> 
+    <video src="img/video.MOV" controls </video>
+    <div> 
+    `;
+    document.getElementById("info").style.width = '100vw';
+
 });
 
 window.addEventListener('online', event => {
     let conexion = document.getElementById('verificarConexion');
-    conexion.className = ("online");
-    conexion.innerHTML = ('<i class="gg-shape-circle"></i> Online');
+    conexion.className = "linea";
+    conexion.innerHTML = 'En línea';
+
 });
 
 if (!navigator.onLine) {
     let conexion = document.getElementById('verificarConexion');
-    conexion.className = ("offline");
-    conexion.innerHTML = ('<i class="gg-shape-circle"></i> Offline');
+    conexion.className = "offline";
+    conexion.innerHTML = 'Offline';
+    document.querySelector(".formulario").remove();
+    document.getElementById("mainInfo").innerHTML = `
+    <div> 
+    <video src="img/video.MOV" controls </video>
+    <div> 
+    `;
+    document.getElementById("info").style.width = '100vw';
 }
 
 if (localStorage.getItem("paraVer")) {
