@@ -24,7 +24,7 @@ window.addEventListener('online', event => {
 });
 
 if (!navigator.onLine) {
-    let conexion = d.getElementById('verificarConexion');
+    let conexion = document.getElementById('verificarConexion');
     conexion.className = ("offline");
     conexion.innerHTML = ('<i class="gg-shape-circle"></i> Offline');
 }
