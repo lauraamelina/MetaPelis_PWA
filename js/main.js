@@ -18,8 +18,8 @@ window.addEventListener('offline', event => {
     document.querySelector(".formulario").remove();
     document.getElementById("mainInfo").innerHTML = `
     <div> 
-    <video src="img/video.MOV" controls </video>
-    <div> 
+    <video src="img/video.MOV" controls> </video>
+    </div> 
     `;
     document.getElementById("info").style.width = '100vw';
 
@@ -39,8 +39,8 @@ if (!navigator.onLine) {
     document.querySelector(".formulario").remove();
     document.getElementById("mainInfo").innerHTML = `
     <div> 
-    <video src="img/video.MOV" controls </video>
-    <div> 
+    <video src="img/video.MOV" controls> </video>
+    </div> 
     `;
     document.getElementById("info").style.width = '100vw';
 }
