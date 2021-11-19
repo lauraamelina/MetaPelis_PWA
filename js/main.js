@@ -5,19 +5,20 @@ let inputElement = document.getElementById('busqueda');
 let divInfo = document.getElementById('mainInfo');
 let sendButton = document.getElementById('sendButton');
 let mainParaVer = document.getElementById('mainParaVer');
+let divRecomendacion = document.getElementById('recomendacion');
 let paraVer = [];
 let laPelicula;
 
 
 // CONEXION A INTERNET
 window.addEventListener('offline', event => {
-    let conexion = d.getElementById('verificarConexion');
+    let conexion = document.getElementById('verificarConexion');
     conexion.className = ("offline");
     conexion.innerHTML = ('<i class="gg-shape-circle"></i> Offline');
 });
 
 window.addEventListener('online', event => {
-    let conexion = d.getElementById('verificarConexion');
+    let conexion = document.getElementById('verificarConexion');
     conexion.className = ("online");
     conexion.innerHTML = ('<i class="gg-shape-circle"></i> Online');
 });
@@ -257,4 +258,63 @@ function listaParaVer() {
 
 if (document.getElementById("mainParaVer")) {
     listaParaVer();
+}
+
+//  RECOMENDACIONES
+function recomendacion() {
+    let laRecomendacion = paraVer[Math.floor(Math.random() * paraVer.length)];
+    if (laRecomendacion == undefined) {
+        divRecomendacion.innerHTML = `<h3> Todavía no agregaste películas para ver más tarde </h3>
+        <a class="btn" href="index.html"> Agregar peliculas </a>`;
+
+
+    } else {
+        console.log('Recomendación: ' + laRecomendacion);
+        let divPeli = document.createElement("div");
+        let titulo = document.createElement("h2");
+        let sinopsis = document.createElement("p");
+        let anio = document.createElement("p");
+        let genero = document.createElement("p");
+        let director = document.createElement("p");
+        let actores = document.createElement("p");
+        let rating = document.createElement("p");
+        let poster = document.createElement("img");
+
+
+        divPeli.appendChild(poster);
+        divPeli.appendChild(poster);
+        divPeli.appendChild(titulo);
+        divPeli.appendChild(sinopsis);
+        divPeli.appendChild(anio);
+        divPeli.appendChild(genero);
+        divPeli.appendChild(director);
+        divPeli.appendChild(actores);
+        divPeli.appendChild(rating);
+
+        divRecomendacion.appendChild(divPeli);
+
+        titulo.innerHTML = laRecomendacion.titulo;
+        sinopsis.innerHTML = `<span class="fw-bold">  Sinopsis: </span>${laRecomendacion.sinopsis} `;
+        anio.innerHTML = `<span class="fw-bold"> Año: </span>${laRecomendacion.anio} `;
+        genero.innerHTML = `<span class="fw-bold"> Género: </span>${laRecomendacion.genero} `;
+        director.innerHTML = `<span class="fw-bold"> Director: </span>${laRecomendacion.director} `;
+        actores.innerHTML = `<span class="fw-bold"> Actores: </span>${laRecomendacion.actores} `;
+        rating.innerHTML = `<span class="fw-bold"> Rating: </span>${laRecomendacion.rating[0].Value} `;
+
+
+        if (laRecomendacion.poster === "N/A") {
+            divPeli.removeChild(poster);
+        } else {
+            poster.src = laRecomendacion.poster;
+        }
+
+
+        divPeli.id = laRecomendacion.titulo;
+        divPeli.className = 'divPelicula mt-5';
+
+    }
+}
+
+if (document.getElementById("recomendacion")) {
+    recomendacion();
 }

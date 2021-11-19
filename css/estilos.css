@@ -143,3 +143,8 @@ nav .navbar-toggler-icon {
 #mainParaVer h1 {
     margin-bottom: 1em;
 }
+
+.recomendaciones {
+    margin: 5em auto;
+    text-align: center;
+}
