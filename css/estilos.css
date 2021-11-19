@@ -80,7 +80,7 @@ nav .navbar-toggler-icon {
 }
 
 .divPelicula {
-    margin-top: 7em;
+    margin-bottom: 10em;
 }
 
 .divPelicula img {
@@ -138,4 +138,8 @@ nav .navbar-toggler-icon {
 
 #mainParaVer a {
     margin-top: 3em;
+}
+
+#mainParaVer h1 {
+    margin-bottom: 1em;
 }
