@@ -143,22 +143,22 @@ function madeGrid(laPelicula) {
 
 
 
-    let banderita1 = 0;
+    let condicion = false;
 
     for (let pelicula of paraVer) {
         if (pelicula.titulo == laPelicula.titulo) {
-            banderita1 = 1;
+            condicion = true;
         }
     }
 
-    if (banderita1 == 0) {
+    if (condicion == true) {
         btnLista.innerHTML = 'Agregar a la lista';
+        btnLista.setAttribute('class', 'btn mb-4 add');
 
 
     } else {
         btnLista.innerHTML = 'Eliminar de la lista';
-
-
+        btnLista.setAttribute('class', 'btn mb-4 del');
     }
 
 

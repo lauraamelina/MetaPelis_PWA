@@ -159,8 +159,18 @@ nav .navbar-toggler-icon {
 }
 
 .offline {
-    color: red;
+    color: black;
     border-radius: 5px;
-    background-color: white;
     padding: 5px 10px;
+}
+
+.add {
+    background-color: #ff8000;
+    color: black;
+}
+
+.del {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
 }
