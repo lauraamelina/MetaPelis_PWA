@@ -15,20 +15,19 @@ window.addEventListener('offline', event => {
     let conexion = document.getElementById('verificarConexion');
     conexion.className = "offline";
     conexion.innerHTML = 'Offline';
-    document.querySelector(".formulario").remove();
-    document.getElementById("mainInfo").innerHTML = `
-    <div> 
-    <video src="img/video.MOV" controls> </video>
-    </div> 
-    `;
-    document.getElementById("info").style.width = '100vw';
 
+    document.querySelector(".formulario").style.display = 'none';
+    document.getElementById("mainInfo").style.display = 'none';
+    document.getElementById("off").style.visibility = 'visible';
 });
 
 window.addEventListener('online', event => {
     let conexion = document.getElementById('verificarConexion');
     conexion.className = "linea";
     conexion.innerHTML = 'En línea';
+    document.querySelector(".formulario").style.display = 'block';
+    document.getElementById("mainInfo").style.display = 'block';
+    document.getElementById("off").style.visibility = 'hidden';
 
 });
 
@@ -36,15 +35,12 @@ if (!navigator.onLine) {
     let conexion = document.getElementById('verificarConexion');
     conexion.className = "offline";
     conexion.innerHTML = 'Offline';
-    document.querySelector(".formulario").remove();
-    document.getElementById("mainInfo").innerHTML = `
-    <div> 
-    <video src="img/video.MOV" controls> </video>
-    </div> 
-    `;
-    document.getElementById("info").style.width = '100vw';
+    document.querySelector(".formulario").style.display = 'none';
+    document.getElementById("mainInfo").style.display = 'none';
+    document.getElementById("off").style.visibility = 'visible';
 }
 
+//SETEO DE LOCAL STORAGE
 if (localStorage.getItem("paraVer")) {
     let listaLocalStorage = JSON.parse(localStorage.getItem("paraVer"));
     listaLocalStorage.forEach(function(e) {
@@ -55,7 +51,6 @@ if (localStorage.getItem("paraVer")) {
 
 
 // ESCUCHA INPUT PELICULA
-
 if (document.getElementById("sendButton")) {
     sendButton.addEventListener("click", () => {
         buscarEnApi(inputElement.value);
@@ -79,7 +74,7 @@ function Pelicula(titulo, sinopsis, anio, genero, director, actores, rating, pos
 
 // FUNCION QUE HACE EL FETCH QUE TRAE LAS PELICULAS
 function buscarEnApi(pelicula) {
-    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&t=${pelicula}`)
+    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&t=${pelicula}`)
         .then(response => response.json())
         .then(data => {
             laPelicula = new Pelicula(data.Title, data.Plot, data.Year, data.Genre, data.Director, data.Actors, data.Ratings, data.Poster);
@@ -93,7 +88,6 @@ function buscarEnApi(pelicula) {
 
 
 //FUNCION QUE MUESTRA LA PELICULA
-
 function madeGrid(laPelicula) {
     divInfo.innerHTML = '';
     let searchPeli = document.createElement("div");
@@ -136,29 +130,20 @@ function madeGrid(laPelicula) {
     }
 
 
-    btnLista.innerHTML = 'Agregar a la lista';
     btnLista.href = '#';
     btnLista.className = 'btn mb-4';
     btnLista.id = 'lista';
 
-
-
-    let condicion = false;
-
+    let condicion = 0;
     for (let pelicula of paraVer) {
         if (pelicula.titulo == laPelicula.titulo) {
-            condicion = true;
+            condicion = 1;
         }
     }
-
-    if (condicion == true) {
+    if (condicion == 1) {
         btnLista.innerHTML = 'Agregar a la lista';
-        btnLista.setAttribute('class', 'btn mb-4 add');
-
-
     } else {
         btnLista.innerHTML = 'Eliminar de la lista';
-        btnLista.setAttribute('class', 'btn mb-4 del');
     }
 
 
@@ -167,11 +152,11 @@ function madeGrid(laPelicula) {
         e.stopImmediatePropagation();
         console.log('pelicula a agregar es: ' + laPelicula.titulo);
 
-        let banderita2 = 0;
+        let condicion2 = 0;
 
         for (let pelicula of paraVer) {
-            if (pelicula.titulo == laPelicula.titulo && banderita2 === 0) {
-                banderita2 = 1;
+            if (pelicula.titulo == laPelicula.titulo && condicion2 === 0) {
+                condicion2 = 1;
 
                 e.target.innerHTML = ('Agregar a la lista');
                 let indice = paraVer.indexOf(pelicula);
@@ -181,7 +166,7 @@ function madeGrid(laPelicula) {
             }
         }
 
-        if (banderita2 == 0) {
+        if (condicion2 == 0) {
             e.target.innerHTML = 'Eliminar de la lista';
             agregarALaLista();
         }
