@@ -83,12 +83,14 @@ function buscarEnApi(pelicula) {
         })
         .catch(function(error) {
             console.log('Algo falló!', error);
+            divInfo.innerHTML = 'No hemos encontrado esa película, probá con otra!';
         });
 }
 
 
 //FUNCION QUE MUESTRA LA PELICULA
 function madeGrid(laPelicula) {
+
     divInfo.innerHTML = '';
     let searchPeli = document.createElement("div");
     let titulo = document.createElement("h2");
@@ -129,7 +131,7 @@ function madeGrid(laPelicula) {
         poster.src = laPelicula.poster;
     }
 
-
+    btnLista.innerHTML = 'Agregar a la lista';
     btnLista.href = '#';
     btnLista.className = 'btn mb-4';
     btnLista.id = 'lista';
@@ -140,7 +142,7 @@ function madeGrid(laPelicula) {
             condicion = 1;
         }
     }
-    if (condicion == 1) {
+    if (condicion == 0) {
         btnLista.innerHTML = 'Agregar a la lista';
     } else {
         btnLista.innerHTML = 'Eliminar de la lista';
